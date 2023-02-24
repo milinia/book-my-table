@@ -1,0 +1,6 @@
+framework module Pods_BookMyTableTests {
+  umbrella header "Pods-BookMyTableTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

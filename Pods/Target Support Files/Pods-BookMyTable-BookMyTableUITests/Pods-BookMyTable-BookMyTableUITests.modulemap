@@ -1,0 +1,6 @@
+framework module Pods_BookMyTable_BookMyTableUITests {
+  umbrella header "Pods-BookMyTable-BookMyTableUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
