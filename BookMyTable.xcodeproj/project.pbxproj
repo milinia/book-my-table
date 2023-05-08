@@ -10,7 +10,25 @@
 		1A097BC78746857C489F0867 /* Pods_BookMyTable_BookMyTableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CECB9B3B9128D06564CEEDE /* Pods_BookMyTable_BookMyTableUITests.framework */; };
 		72BA302B3C0DCED2F4D228A3 /* Pods_BookMyTableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D70020C58937F68D1C58A7 /* Pods_BookMyTableTests.framework */; };
 		9C007689B4C1DA0A0F27E858 /* Pods_BookMyTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBC80B5247CA64A7B43904E /* Pods_BookMyTable.framework */; };
+		E53C6A402A03EA4F002267D8 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C6A3F2A03EA4F002267D8 /* RestaurantTableViewCell.swift */; };
+		E53C6A422A03EBD9002267D8 /* RestaurantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C6A412A03EBD9002267D8 /* RestaurantData.swift */; };
+		E55B47FA2A08F66800C16A85 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B47F92A08F66800C16A85 /* RestaurantViewController.swift */; };
+		E55B47FC2A08F6A200C16A85 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B47FB2A08F6A200C16A85 /* ReservationViewController.swift */; };
+		E55B47FE2A08F6CE00C16A85 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B47FD2A08F6CE00C16A85 /* StatusViewController.swift */; };
+		E55B48002A090BAC00C16A85 /* RestaurantDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B47FF2A090BAC00C16A85 /* RestaurantDetailData.swift */; };
+		E55B48022A090CD400C16A85 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B48012A090CD400C16A85 /* MenuData.swift */; };
+		E55B48042A090E5700C16A85 /* ReservationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B48032A090E5700C16A85 /* ReservationData.swift */; };
+		E55CFD0D29F85BD90022CF9B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CFD0C29F85BD90022CF9B /* MapViewController.swift */; };
+		E55CFD0F29F85BEC0022CF9B /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CFD0E29F85BEC0022CF9B /* MapPresenter.swift */; };
+		E57358442A093E71009315DB /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57358432A093E71009315DB /* RestaurantView.swift */; };
+		E57358462A093F83009315DB /* MenuViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57358452A093F83009315DB /* MenuViewContoller.swift */; };
+		E57358482A09430B009315DB /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57358472A09430B009315DB /* AuthenticationViewController.swift */; };
+		E573584A2A0946FF009315DB /* VerifyPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57358492A0946FF009315DB /* VerifyPhoneViewController.swift */; };
+		E573584C2A0947D7009315DB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573584B2A0947D7009315DB /* StartViewController.swift */; };
+		E573584E2A0949E0009315DB /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573584D2A0949E0009315DB /* ReviewData.swift */; };
 		E5991E8729A905D90056DE75 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5991E8629A905D90056DE75 /* RegistrationPresenter.swift */; };
+		E5CFB9C829FFD8520027619A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5CFB9C729FFD8520027619A /* Localizable.strings */; };
+		E5CFB9CA29FFDB490027619A /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CFB9C929FFDB490027619A /* Strings+Generated.swift */; };
 		E5E09B5A29A51A00001503BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E09B5929A51A00001503BF /* AppDelegate.swift */; };
 		E5E09B5C29A51A00001503BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E09B5B29A51A00001503BF /* SceneDelegate.swift */; };
 		E5E09B5E29A51A00001503BF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E09B5D29A51A00001503BF /* RegistrationViewController.swift */; };
@@ -48,7 +66,25 @@
 		A3D70020C58937F68D1C58A7 /* Pods_BookMyTableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookMyTableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB247AD67679FDE3F55420BF /* Pods-BookMyTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyTable.debug.xcconfig"; path = "Target Support Files/Pods-BookMyTable/Pods-BookMyTable.debug.xcconfig"; sourceTree = "<group>"; };
 		CBD366343A6309C016CE7727 /* Pods-BookMyTableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyTableTests.debug.xcconfig"; path = "Target Support Files/Pods-BookMyTableTests/Pods-BookMyTableTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E53C6A3F2A03EA4F002267D8 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		E53C6A412A03EBD9002267D8 /* RestaurantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantData.swift; sourceTree = "<group>"; };
+		E55B47F92A08F66800C16A85 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		E55B47FB2A08F6A200C16A85 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
+		E55B47FD2A08F6CE00C16A85 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		E55B47FF2A090BAC00C16A85 /* RestaurantDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailData.swift; sourceTree = "<group>"; };
+		E55B48012A090CD400C16A85 /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		E55B48032A090E5700C16A85 /* ReservationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationData.swift; sourceTree = "<group>"; };
+		E55CFD0C29F85BD90022CF9B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E55CFD0E29F85BEC0022CF9B /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		E57358432A093E71009315DB /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
+		E57358452A093F83009315DB /* MenuViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewContoller.swift; sourceTree = "<group>"; };
+		E57358472A09430B009315DB /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		E57358492A0946FF009315DB /* VerifyPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneViewController.swift; sourceTree = "<group>"; };
+		E573584B2A0947D7009315DB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		E573584D2A0949E0009315DB /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		E5991E8629A905D90056DE75 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		E5CFB9C729FFD8520027619A /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E5CFB9C929FFDB490027619A /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		E5E09B5629A51A00001503BF /* BookMyTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMyTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E09B5929A51A00001503BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E09B5B29A51A00001503BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +139,6 @@
 				CBD366343A6309C016CE7727 /* Pods-BookMyTableTests.debug.xcconfig */,
 				6BBC41277B5ADBA6CFB87A78 /* Pods-BookMyTableTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -117,9 +152,62 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E55CFD0B29F85BC20022CF9B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E55CFD0C29F85BD90022CF9B /* MapViewController.swift */,
+				E55CFD0E29F85BEC0022CF9B /* MapPresenter.swift */,
+				E53C6A3F2A03EA4F002267D8 /* RestaurantTableViewCell.swift */,
+				E53C6A412A03EBD9002267D8 /* RestaurantData.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		E55CFD1029F863AF0022CF9B /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				E55B47F92A08F66800C16A85 /* RestaurantViewController.swift */,
+				E55B47FF2A090BAC00C16A85 /* RestaurantDetailData.swift */,
+				E55B48012A090CD400C16A85 /* MenuData.swift */,
+				E57358432A093E71009315DB /* RestaurantView.swift */,
+				E57358452A093F83009315DB /* MenuViewContoller.swift */,
+				E573584D2A0949E0009315DB /* ReviewData.swift */,
+			);
+			path = Restaurant;
+			sourceTree = "<group>";
+		};
+		E55CFD1129F863D70022CF9B /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				E55B47FB2A08F6A200C16A85 /* ReservationViewController.swift */,
+				E55B47FD2A08F6CE00C16A85 /* StatusViewController.swift */,
+				E55B48032A090E5700C16A85 /* ReservationData.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		E55CFD1229F864E00022CF9B /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		E55CFD1329F865440022CF9B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		E572EF8C29A8939F002D9A85 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E55CFD1329F865440022CF9B /* Profile */,
+				E55CFD1229F864E00022CF9B /* MainTabBar */,
+				E55CFD1129F863D70022CF9B /* Reservation */,
+				E55CFD1029F863AF0022CF9B /* Restaurant */,
+				E55CFD0B29F85BC20022CF9B /* Map */,
 				E572EF9029A8BB77002D9A85 /* Auth */,
 			);
 			path = Modules;
@@ -144,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				E5E09B5B29A51A00001503BF /* SceneDelegate.swift */,
-				E5E09B6A29A51A03001503BF /* Info.plist */,
 				E5E09B5929A51A00001503BF /* AppDelegate.swift */,
 			);
 			path = App;
@@ -155,8 +242,18 @@
 			children = (
 				E5E09B5D29A51A00001503BF /* RegistrationViewController.swift */,
 				E5991E8629A905D90056DE75 /* RegistrationPresenter.swift */,
+				E57358472A09430B009315DB /* AuthenticationViewController.swift */,
+				E57358492A0946FF009315DB /* VerifyPhoneViewController.swift */,
+				E573584B2A0947D7009315DB /* StartViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		E58727C629A90FF9003D054F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E5E09B4D29A51A00001503BF = {
@@ -184,12 +281,16 @@
 		E5E09B5829A51A00001503BF /* BookMyTable */ = {
 			isa = PBXGroup;
 			children = (
+				E5E09B6A29A51A03001503BF /* Info.plist */,
+				E5CFB9C929FFDB490027619A /* Strings+Generated.swift */,
+				E58727C629A90FF9003D054F /* View */,
 				E572EF8F29A893E9002D9A85 /* App */,
 				E572EF8E29A893D7002D9A85 /* CoreData */,
 				E572EF8D29A893BD002D9A85 /* Networking */,
 				E572EF8C29A8939F002D9A85 /* Modules */,
 				E5E09B6529A51A03001503BF /* Assets.xcassets */,
 				E5E09B6729A51A03001503BF /* LaunchScreen.storyboard */,
+				E5CFB9C729FFD8520027619A /* Localizable.strings */,
 			);
 			path = BookMyTable;
 			sourceTree = "<group>";
@@ -223,6 +324,7 @@
 				E5E09B5329A51A00001503BF /* Frameworks */,
 				E5E09B5429A51A00001503BF /* Resources */,
 				CBF51CAB9C744D575A1D4930 /* [CP] Embed Pods Frameworks */,
+				E5CFB9CB29FFDD020027619A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -284,6 +386,7 @@
 				TargetAttributes = {
 					E5E09B5529A51A00001503BF = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					E5E09B6E29A51A04001503BF = {
 						CreatedOnToolsVersion = 14.2;
@@ -321,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E09B6929A51A03001503BF /* LaunchScreen.storyboard in Resources */,
+				E5CFB9C829FFD8520027619A /* Localizable.strings in Resources */,
 				E5E09B6629A51A03001503BF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +546,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BookMyTable/Pods-BookMyTable-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E5CFB9CB29FFDD020027619A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -449,11 +572,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E53C6A422A03EBD9002267D8 /* RestaurantData.swift in Sources */,
+				E573584E2A0949E0009315DB /* ReviewData.swift in Sources */,
 				E5E09B5E29A51A00001503BF /* RegistrationViewController.swift in Sources */,
+				E55CFD0F29F85BEC0022CF9B /* MapPresenter.swift in Sources */,
+				E55CFD0D29F85BD90022CF9B /* MapViewController.swift in Sources */,
 				E5991E8729A905D90056DE75 /* RegistrationPresenter.swift in Sources */,
+				E57358442A093E71009315DB /* RestaurantView.swift in Sources */,
 				E5E09B6429A51A00001503BF /* BookMyTable.xcdatamodeld in Sources */,
+				E55B47FE2A08F6CE00C16A85 /* StatusViewController.swift in Sources */,
+				E573584C2A0947D7009315DB /* StartViewController.swift in Sources */,
+				E55B48022A090CD400C16A85 /* MenuData.swift in Sources */,
+				E55B48002A090BAC00C16A85 /* RestaurantDetailData.swift in Sources */,
 				E5E09B5A29A51A00001503BF /* AppDelegate.swift in Sources */,
+				E5CFB9CA29FFDB490027619A /* Strings+Generated.swift in Sources */,
+				E53C6A402A03EA4F002267D8 /* RestaurantTableViewCell.swift in Sources */,
+				E55B48042A090E5700C16A85 /* ReservationData.swift in Sources */,
+				E57358462A093F83009315DB /* MenuViewContoller.swift in Sources */,
+				E57358482A09430B009315DB /* AuthenticationViewController.swift in Sources */,
+				E573584A2A0946FF009315DB /* VerifyPhoneViewController.swift in Sources */,
+				E55B47FA2A08F66800C16A85 /* RestaurantViewController.swift in Sources */,
 				E5E09B5C29A51A00001503BF /* SceneDelegate.swift in Sources */,
+				E55B47FC2A08F6A200C16A85 /* ReservationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +761,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -638,6 +779,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = evelina.BookMyTable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -649,6 +791,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  BookMyTable
+
+  Created by Evelina on 01.05.2023.
+  
+*/
+
+"registation" = "Регистрация";
+"authentication" = "Вход";
+"registation.phone_number" = "Введите номер телефона";
+"registation.name" = "Имя";
+"registation.next" = "Дальше";
+
+
+"main.list" = "Список";
+"main.map" = "На карте";
+"main.search" = "Поиск";
