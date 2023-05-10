@@ -5,12 +5,19 @@
   Created by Evelina on 01.05.2023.
   
 */
+"start.title" = "Бронирование столиков онлайн - просто, быстро, удобно";
+"start.button" = "Начать";
 
-"registation" = "Регистрация";
+"registration" = "Регистрация";
 "authentication" = "Вход";
-"registation.phone_number" = "Введите номер телефона";
-"registation.name" = "Имя";
-"registation.next" = "Дальше";
+"authentication.registration" = "Хотите создать аккаунт?";
+"registration.phoneNumber" = "Введите номер телефона";
+"registration.phoneNumber.message" = "Мы отправим SMS на этот номер, чтобы верифицировать его";
+"registration.name" = "Имя";
+"registration.next" = "Дальше";
+"registration.confirm" = "Подтвердите свой номер телефона";
+"registration.confirm.message" = "Введите 4-значный код из SMS";
+"registration.login" = "Уже есть аккаунт?";
 
 
 "main.list" = "Список";

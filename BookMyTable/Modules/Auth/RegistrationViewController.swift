@@ -19,15 +19,30 @@ class RegistrationViewController: UIViewController {
         static let restaurantImageWidth: CGFloat = 120
     }
     //MARK: - Private UI properties
-    private lazy var searchTextField: UITextField = {
+    private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         return textField
     }()
     
-    private lazy var titleLabel: UILabel = {
+    private lazy var phoneTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.keyboardType = .phonePad
+        return textField
+    }()
+    
+    private lazy var registrationLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: UIConstants.amountLabelFontSize, weight: .bold)
+        label.text = StringConstants.registration
+        return label
+    }()
+    
+    private lazy var phoneLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: UIConstants.amountLabelFontSize, weight: .bold)
+        label.text = StringConstants.Registration.phoneNumber
         return label
     }()
 

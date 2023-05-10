@@ -240,8 +240,8 @@
 		E572EF9029A8BB77002D9A85 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				E5E09B5D29A51A00001503BF /* RegistrationViewController.swift */,
 				E5991E8629A905D90056DE75 /* RegistrationPresenter.swift */,
+				E5E09B5D29A51A00001503BF /* RegistrationViewController.swift */,
 				E57358472A09430B009315DB /* AuthenticationViewController.swift */,
 				E57358492A0946FF009315DB /* VerifyPhoneViewController.swift */,
 				E573584B2A0947D7009315DB /* StartViewController.swift */,

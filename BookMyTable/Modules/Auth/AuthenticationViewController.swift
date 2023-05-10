@@ -17,15 +17,24 @@ class AuthenticationViewController: UIViewController {
         static let restaurantImageWidth: CGFloat = 120
     }
     //MARK: - Private UI properties
-    private lazy var searchTextField: UITextField = {
+    private lazy var phoneTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
+        textField.keyboardType = .phonePad
         return textField
     }()
     
-    private lazy var titleLabel: UILabel = {
+    private lazy var phoneLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: UIConstants.amountLabelFontSize, weight: .bold)
+        label.text = StringConstants.Registration.phoneNumber
+        return label
+    }()
+    
+    private lazy var infoLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemGray5
+        label.text = StringConstants.Registration.PhoneNumber.message
         return label
     }()
 
