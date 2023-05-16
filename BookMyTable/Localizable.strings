@@ -10,15 +10,23 @@
 
 "registration" = "Регистрация";
 "authentication" = "Вход";
+"authentication.button" = "Продолжить";
 "authentication.registration" = "Хотите создать аккаунт?";
+
 "registration.phoneNumber" = "Введите номер телефона";
-"registration.phoneNumber.message" = "Мы отправим SMS на этот номер, чтобы верифицировать его";
-"registration.name" = "Имя";
+"registration.message" = "Мы отправим SMS на этот номер, чтобы восстановить Ваш аккаунт";
+"registration.name" = "Ваше имя";
 "registration.next" = "Дальше";
-"registration.confirm" = "Подтвердите свой номер телефона";
 "registration.confirm.message" = "Введите 4-значный код из SMS";
 "registration.login" = "Уже есть аккаунт?";
+"registration.info" = "Заполните поля, чтобы бронировать столики в нашем приложении";
+"registration.login" = "Войти";
+"registration.agreement" = "Нажимая кнопку «Дальше», Вы принимаете пользовательское соглашение и политику конфиденциальности ";
 
+"verify.message" = "Введите код, который мы отправили на номер ";
+"verify.again" = "Отправить код еще раз";
+"verify" = "Подтвердите свой номер телефона";
+"verify.button" = "Подтвердить";
 
 "main.list" = "Список";
 "main.map" = "На карте";

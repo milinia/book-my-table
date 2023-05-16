@@ -67,7 +67,8 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-            //регистрация или ауентификация
+        let registrationViewController = RegistrationViewController()
+        navigationController?.pushViewController(registrationViewController, animated: true)
     }
     
     private func setupConstraints() {

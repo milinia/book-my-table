@@ -10,6 +10,7 @@
 		1A097BC78746857C489F0867 /* Pods_BookMyTable_BookMyTableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CECB9B3B9128D06564CEEDE /* Pods_BookMyTable_BookMyTableUITests.framework */; };
 		72BA302B3C0DCED2F4D228A3 /* Pods_BookMyTableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D70020C58937F68D1C58A7 /* Pods_BookMyTableTests.framework */; };
 		9C007689B4C1DA0A0F27E858 /* Pods_BookMyTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBC80B5247CA64A7B43904E /* Pods_BookMyTable.framework */; };
+		E52696012A12B85B00507CA0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52696002A12B85B00507CA0 /* CustomTextField.swift */; };
 		E53C6A402A03EA4F002267D8 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C6A3F2A03EA4F002267D8 /* RestaurantTableViewCell.swift */; };
 		E53C6A422A03EBD9002267D8 /* RestaurantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C6A412A03EBD9002267D8 /* RestaurantData.swift */; };
 		E55B47FA2A08F66800C16A85 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B47F92A08F66800C16A85 /* RestaurantViewController.swift */; };
@@ -66,6 +67,7 @@
 		A3D70020C58937F68D1C58A7 /* Pods_BookMyTableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookMyTableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB247AD67679FDE3F55420BF /* Pods-BookMyTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyTable.debug.xcconfig"; path = "Target Support Files/Pods-BookMyTable/Pods-BookMyTable.debug.xcconfig"; sourceTree = "<group>"; };
 		CBD366343A6309C016CE7727 /* Pods-BookMyTableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyTableTests.debug.xcconfig"; path = "Target Support Files/Pods-BookMyTableTests/Pods-BookMyTableTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E52696002A12B85B00507CA0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E53C6A3F2A03EA4F002267D8 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		E53C6A412A03EBD9002267D8 /* RestaurantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantData.swift; sourceTree = "<group>"; };
 		E55B47F92A08F66800C16A85 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				E57358472A09430B009315DB /* AuthenticationViewController.swift */,
 				E57358492A0946FF009315DB /* VerifyPhoneViewController.swift */,
 				E573584B2A0947D7009315DB /* StartViewController.swift */,
+				E52696002A12B85B00507CA0 /* CustomTextField.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				E573584E2A0949E0009315DB /* ReviewData.swift in Sources */,
 				E5E09B5E29A51A00001503BF /* RegistrationViewController.swift in Sources */,
 				E55CFD0F29F85BEC0022CF9B /* MapPresenter.swift in Sources */,
+				E52696012A12B85B00507CA0 /* CustomTextField.swift in Sources */,
 				E55CFD0D29F85BD90022CF9B /* MapViewController.swift in Sources */,
 				E5991E8729A905D90056DE75 /* RegistrationPresenter.swift in Sources */,
 				E57358442A093E71009315DB /* RestaurantView.swift in Sources */,
