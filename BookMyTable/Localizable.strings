@@ -31,3 +31,22 @@
 "main.list" = "Список";
 "main.map" = "На карте";
 "main.search" = "Поиск";
+
+"reservation" = "Бронирование";
+"reservation.guests" = "Количество гостей";
+"reservation.date" = "Дата";
+"reservation.cancel" = "Отмена";
+"reservation.choose" = "Выбрать";
+"reservation.choose_date" = "Выберите удобную дату";
+"reservation.time" = "Время";
+"reservation.button" = "Забронировать";
+"reservation.comment" = "Пожелания к бронированию (необязательно)";
+"reservation.table" = "Выбранный стол";
+
+"tabBar.feed" = "Главная";
+"tabBar.search" = "Поиск";
+"tabBar.reservations" = "Брони";
+
+"profile.reservations" = "Мои бронирования";
+
+"recommendation.collection" = "Подборки";

@@ -18,7 +18,7 @@ class MapViewController: UIViewController {
         static let searchTextFieldHeight: CGFloat = 50
     }
     
-    private var restaurants: [RestaurantData] = [RestaurantData(latitude: 55.780751, longitude: 49.137154, title: "На крыше", rating: "9.2", address: "Баумана 82", openingHours: "12:00–01:00", image: UIImage(named: "image")?.pngData() ?? Data())]
+    private var restaurants: [RestaurantData] = [RestaurantData(latitude: 55.780751, longitude: 49.137154, title: "На крыше", rating: "9.2", address: "Казань, Баумана 82", openingHours: "12:00–01:00", image: UIImage(named: "image")?.pngData() ?? Data())]
     
     //MARK: - Private UI properties
     private lazy var mapView: MKMapView = {
@@ -63,8 +63,6 @@ class MapViewController: UIViewController {
         view.addSubview(tableView)
         view.backgroundColor = .white
         
-        mapOrListSegmentedControl.addTarget(self, action: #selector(segmentedControlClicked(_:)), for: .valueChanged)
-        
         setupSubview()
         setupConstraints()
         showMap()
@@ -77,19 +75,6 @@ class MapViewController: UIViewController {
     private func showList() {
         tableView.isHidden = false
         mapView.isHidden = true
-    }
-    
-    @objc
-    private func segmentedControlClicked(_ sender: UISegmentedControl) {
-        
-        switch sender.selectedSegmentIndex {
-        case 0:
-            showList()
-        case 1:
-            showMap()
-        default:
-            break
-        }
     }
     
     private func setupSubview() {
@@ -154,6 +139,20 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        mapOrListSegmentedControl.addTarget(self, action: #selector(segmentedControlClicked(_:)), for: .valueChanged)
+    }
+    
+    @objc
+    private func segmentedControlClicked(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            showList()
+        case 1:
+            showMap()
+        default:
+            break
+        }
     }
 }
 
@@ -172,6 +171,8 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //переход к деталке ресторана
+        let restaurantViewController = RestaurantViewController()
+        restaurantViewController.restaurant = RestaurantDetailData(title: "На крыше", rating: "9.2", cuisine: "", description: "", address: "Казань, Баумана 82", openingHours: "12:00–01:00", images: [UIImage(named: "image")?.pngData() ?? Data()], like: false, reviews: [ReviewData(author: "Татьяна", comment: "Очень вкусная еда и сам ресторан красивый!", rate: 10)])
+        navigationController?.pushViewController(restaurantViewController, animated: true)
     }
 }

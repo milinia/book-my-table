@@ -90,9 +90,9 @@ class VerifyPhoneViewController: UIViewController {
         button.layer.cornerRadius = UIConstants.buttonCornerRadius
         button.clipsToBounds = true
         button.setTitle(StringConstants.Verify.button, for: .normal)
-        button.backgroundColor = .systemGray4
+        button.backgroundColor = UIColor(red: 0.07, green: 0.29, blue: 0.71, alpha: 0.82)
         button.contentEdgeInsets = UIEdgeInsets(top: UIConstants.contentInset, left: UIConstants.contentInset, bottom: UIConstants.contentInset, right: UIConstants.contentInset)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIConstants.buttonLabelFontSize)
         return button
     }()
@@ -127,10 +127,24 @@ class VerifyPhoneViewController: UIViewController {
         }
 
         // Create a new view controller to set as the root view controller
-        let newViewController = MapViewController()
+        let tabBarViewController = UITabBarController()
+        let recVC = RecommendationViewController()
+        recVC.title = StringConstants.TabBar.feed
+        let mapVC = MapViewController()
+        mapVC.title = StringConstants.TabBar.search
+        let profileVC = ProfileViewController()
+        profileVC.title = StringConstants.TabBar.reservations
+        tabBarViewController.setViewControllers([recVC, mapVC, profileVC], animated: false)
+        tabBarViewController.tabBar.backgroundColor = .systemGray5
+        let items = tabBarViewController.tabBar.items
+        let images = [UIImage(systemName: "house"), UIImage(systemName: "magnifyingglass"), UIImage(systemName: "list.clipboard")]
+        for i in 0...2 {
+            items?[i].image = images[i]
+        }
+        tabBarViewController.selectedIndex = 0
 
         // Set the root view controller to the new view controller
-        window.rootViewController = newViewController
+        window.rootViewController = tabBarViewController
 
     }
     

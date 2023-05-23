@@ -17,6 +17,8 @@ class RestaurantViewController: UIViewController {
         static let searchTextFieldHeight: CGFloat = 50
     }
     
+    var restaurant: RestaurantDetailData? = nil
+    
     //MARK: - Private UI properties
     private lazy var restaurantView: UIImageView = {
         let image = UIImageView()

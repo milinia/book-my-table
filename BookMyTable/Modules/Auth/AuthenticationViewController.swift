@@ -55,7 +55,7 @@ class AuthenticationViewController: UIViewController {
         button.setTitle(StringConstants.registration, for: .normal)
         button.layer.borderWidth = UIConstants.buttonBorderWidth
         button.setTitleColor(.black, for: .normal)
-        button.layer.borderColor = UIColor.systemGray5.cgColor
+        button.layer.borderColor = UIColor.systemGray6.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: UIConstants.contentInset, left: UIConstants.contentInset, bottom: UIConstants.contentInset, right: UIConstants.contentInset)
         return button
     }()
@@ -65,9 +65,9 @@ class AuthenticationViewController: UIViewController {
         button.layer.cornerRadius = UIConstants.buttonCornerRadius
         button.clipsToBounds = true
         button.setTitle(StringConstants.Registration.next, for: .normal)
-        button.backgroundColor = .systemGray4
+        button.backgroundColor = UIColor(red: 0.07, green: 0.29, blue: 0.71, alpha: 0.82)
         button.contentEdgeInsets = UIEdgeInsets(top: UIConstants.contentInset, left: UIConstants.contentInset, bottom: UIConstants.contentInset, right: UIConstants.contentInset)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIConstants.buttonLabelFontSize)
         return button
     }()

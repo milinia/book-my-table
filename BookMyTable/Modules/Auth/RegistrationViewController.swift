@@ -77,9 +77,9 @@ class RegistrationViewController: UIViewController {
         button.layer.cornerRadius = UIConstants.buttonCornerRadius
         button.clipsToBounds = true
         button.setTitle(StringConstants.Registration.next, for: .normal)
-        button.backgroundColor = .systemGray4
+        button.backgroundColor = UIColor(red: 0.07, green: 0.29, blue: 0.71, alpha: 0.82)
         button.contentEdgeInsets = UIEdgeInsets(top: UIConstants.contentInset, left: UIConstants.contentInset, bottom: UIConstants.contentInset, right: UIConstants.contentInset)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIConstants.buttonLabelFontSize)
         return button
     }()
@@ -91,7 +91,7 @@ class RegistrationViewController: UIViewController {
         button.setTitle(StringConstants.Registration.login, for: .normal)
         button.layer.borderWidth = UIConstants.buttonBorderWidth
         button.setTitleColor(.black, for: .normal)
-        button.layer.borderColor = UIColor.systemGray5.cgColor
+        button.layer.borderColor = UIColor.systemGray6.cgColor
         button.contentEdgeInsets = UIEdgeInsets(top: UIConstants.contentInset, left: UIConstants.contentInset, bottom: UIConstants.contentInset, right: UIConstants.contentInset)
         return button
     }()
@@ -104,16 +104,16 @@ class RegistrationViewController: UIViewController {
         let barButton = UIBarButtonItem(customView: loginButton)
         navigationItem.rightBarButtonItem = barButton
         
-        nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: .touchUpInside)
-        loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
     
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
+    @objc func loginButtonTapped() {
         let authViewController = AuthenticationViewController()
         navigationController?.pushViewController(authViewController, animated: true)
     }
     
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
+    @objc func nextButtonTapped() {
         // TODO: отправка запроса на сервер - проверка, что все поля заполнены
         let verifyPhoneViewController = VerifyPhoneViewController()
         verifyPhoneViewController.userEnteredPhoneNumber = phoneTextField.text ?? ""

@@ -14,6 +14,8 @@ internal enum StringConstants {
   internal static let authentication = StringConstants.tr("Localizable", "authentication", fallback: "Вход")
   /// Регистрация
   internal static let registration = StringConstants.tr("Localizable", "registration", fallback: "Регистрация")
+  /// Бронирование
+  internal static let reservation = StringConstants.tr("Localizable", "reservation", fallback: "Бронирование")
   /// Подтвердите свой номер телефона
   internal static let verify = StringConstants.tr("Localizable", "verify", fallback: "Подтвердите свой номер телефона")
   internal enum Authentication {
@@ -29,6 +31,14 @@ internal enum StringConstants {
     internal static let map = StringConstants.tr("Localizable", "main.map", fallback: "На карте")
     /// Поиск
     internal static let search = StringConstants.tr("Localizable", "main.search", fallback: "Поиск")
+  }
+  internal enum Profile {
+    /// Мои бронирования
+    internal static let reservations = StringConstants.tr("Localizable", "profile.reservations", fallback: "Мои бронирования")
+  }
+  internal enum Recommendation {
+    /// Подборки
+    internal static let collection = StringConstants.tr("Localizable", "recommendation.collection", fallback: "Подборки")
   }
   internal enum Registration {
     /// Нажимая кнопку «Дальше», Вы принимаете пользовательское соглашение и политику конфиденциальности 
@@ -50,6 +60,26 @@ internal enum StringConstants {
       internal static let message = StringConstants.tr("Localizable", "registration.confirm.message", fallback: "Введите 4-значный код из SMS")
     }
   }
+  internal enum Reservation {
+    /// Забронировать
+    internal static let button = StringConstants.tr("Localizable", "reservation.button", fallback: "Забронировать")
+    /// Отмена
+    internal static let cancel = StringConstants.tr("Localizable", "reservation.cancel", fallback: "Отмена")
+    /// Выбрать
+    internal static let choose = StringConstants.tr("Localizable", "reservation.choose", fallback: "Выбрать")
+    /// Выберите удобную дату
+    internal static let chooseDate = StringConstants.tr("Localizable", "reservation.choose_date", fallback: "Выберите удобную дату")
+    /// Пожелания к бронированию (необязательно)
+    internal static let comment = StringConstants.tr("Localizable", "reservation.comment", fallback: "Пожелания к бронированию (необязательно)")
+    /// Дата
+    internal static let date = StringConstants.tr("Localizable", "reservation.date", fallback: "Дата")
+    /// Количество гостей
+    internal static let guests = StringConstants.tr("Localizable", "reservation.guests", fallback: "Количество гостей")
+    /// Выбранный стол
+    internal static let table = StringConstants.tr("Localizable", "reservation.table", fallback: "Выбранный стол")
+    /// Время
+    internal static let time = StringConstants.tr("Localizable", "reservation.time", fallback: "Время")
+  }
   internal enum Start {
     /// Начать
     internal static let button = StringConstants.tr("Localizable", "start.button", fallback: "Начать")
@@ -58,6 +88,14 @@ internal enum StringConstants {
     /// 
     ///   Created by Evelina on 01.05.2023.
     internal static let title = StringConstants.tr("Localizable", "start.title", fallback: "Бронирование столиков онлайн - просто, быстро, удобно")
+  }
+  internal enum TabBar {
+    /// Главная
+    internal static let feed = StringConstants.tr("Localizable", "tabBar.feed", fallback: "Главная")
+    /// Брони
+    internal static let reservations = StringConstants.tr("Localizable", "tabBar.reservations", fallback: "Брони")
+    /// Поиск
+    internal static let search = StringConstants.tr("Localizable", "tabBar.search", fallback: "Поиск")
   }
   internal enum Verify {
     /// Отправить код еще раз
