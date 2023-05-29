@@ -19,19 +19,7 @@ class MapViewController: UIViewController {
         static let searchTextFieldHeight: CGFloat = 50
     }
     var reservations: [ReservationData] = [ReservationData(time: "18:10", date: "21 мая", restaurantName: "Branch", restaurantAddress: "Казань, Дзержинского, 6Б", guestsNumber: 2, restaurantImage: UIImage(named: "branch")?.pngData() ?? Data(), status: "Отменено"), ReservationData(time: "21:30", date: "17 апреля", restaurantName: "The Jungle", restaurantAddress: "Казань, ​Спартаковская, 2к1", guestsNumber: 2, restaurantImage: UIImage(named: "jungle")?.pngData() ?? Data(), status: "Завершена")]
-    private var restaurants: [RestaurantData] = [
-                                                RestaurantData(latitude: 55.780751, longitude: 49.137154, title: "На крыше", rating: 4.9, address: "Казань, Баумана, 82", openingHours: "12:00 – 01:00", image: UIImage(named: "on_roof")?.pngData() ?? Data()),
-                                                 RestaurantData(latitude: 55.790054, longitude: 49.113798, title: "Limoncello", rating: 4.7, address: "Казань, Кави Наджми, 8", openingHours: "8:00 – 02:00", image: UIImage(named: "limoncello")?.pngData() ?? Data()),
-                                                 RestaurantData(latitude: 55.821173, longitude: 49.093397, title: "4 кухни", rating: 4.9, address: "Казань, Проспект Ибрагимова, 56", openingHours: "12:00 – 23:00", image: UIImage(named: "4_kitchen")?.pngData() ?? Data()),
-                                                RestaurantData(latitude: 55.795828, longitude: 49.113529, title: "Branch", rating: 4.3, address: "Казань, Дзержинского, 6Б", openingHours: "12:00 – 01:00", image: UIImage(named: "branch")?.pngData() ?? Data()),
-                                                RestaurantData(latitude: 55.794943, longitude: 49.111759, title: "L`Elephant", rating: 3.9, address: "Казань, ​Кремлёвская, 2а", openingHours: "8:00 – 24:00", image: UIImage(named: "slon")?.pngData() ?? Data()),
-                                                RestaurantData(latitude: 55.780897, longitude: 49.127309, title: "The Jungle", rating: 4.6, address: "Казань, ​Спартаковская, 2к1", openingHours: "18:00 – 06:00", image: UIImage(named: "jungle")?.pngData() ?? Data()),
-                                                RestaurantData(latitude: 55.790408, longitude: 49.115936, title: "Хочу и Буду", rating: 4.5, address: "Казань, Баумана, 25", openingHours: "11:00 – 01:00", image: UIImage(named: "hochu_budu")?.pngData() ?? Data()),
-                                                RestaurantData(latitude: 55.78854, longitude: 49.107663, title: "Restobar DALI", rating: 4.0, address: "Казань, ​Московская, 36", openingHours: "12:00 – 23:00", image: UIImage(named: "dali")?.pngData() ?? Data()),
-                                                RestaurantData(latitude: 55.787325, longitude: 49.102668, title: "Хинкальная", rating: 4.2, address: "Казань, Чернышевского, 43", openingHours: "11:00 – 24:00", image: UIImage(named: "hinkalnaya")?.pngData() ?? Data()),
-                                                RestaurantData(latitude: 55.7889, longitude: 49.114292, title: "Истина", rating: 4.5, address: "Казань, Островского, 14", openingHours: "11:00 – 24:00", image: UIImage(named: "istina")?.pngData() ?? Data()),
-                                                RestaurantData(latitude: 55.793627, longitude: 49.137154, title: "LevelL Kitchen&Bar", rating: 4.4, address: "Казань, Кремлёвская, 21", openingHours: "12:00 – 23:00", image: UIImage(named: "level")?.pngData() ?? Data()),
-                                                RestaurantData(latitude: 55.793698, longitude: 49.125467, title: "Duran", rating: 4.6, address: "Казань, Пушкина, 46", openingHours: "18:00 – 03:00", image: UIImage(named: "duran")?.pngData() ?? Data())]
+    private let mapPresenter = MapPresenter()
     
     //MARK: - Private UI properties
     private lazy var mapView: MKMapView = {
@@ -175,6 +163,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         mapOrListSegmentedControl.addTarget(self, action: #selector(segmentedControlClicked(_:)), for: .valueChanged)
+        mapPresenter.getRestaurants(page: num)
     }
     
     @objc

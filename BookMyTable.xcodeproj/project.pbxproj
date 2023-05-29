@@ -14,6 +14,10 @@
 		E53C6A402A03EA4F002267D8 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C6A3F2A03EA4F002267D8 /* RestaurantTableViewCell.swift */; };
 		E53C6A422A03EBD9002267D8 /* RestaurantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C6A412A03EBD9002267D8 /* RestaurantData.swift */; };
 		E5577C362A20C8E400D40FB5 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5577C352A20C8E300D40FB5 /* ReviewTableViewCell.swift */; };
+		E559A71F2A2479DF0062B917 /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559A71E2A2479DF0062B917 /* RestaurantService.swift */; };
+		E559A7212A247A5C0062B917 /* RestaurantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559A7202A247A5C0062B917 /* RestaurantManager.swift */; };
+		E559A7232A247A8C0062B917 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559A7222A247A8C0062B917 /* NetworkManager.swift */; };
+		E559A7252A247B670062B917 /* RestaurantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559A7242A247B670062B917 /* RestaurantTarget.swift */; };
 		E55B47FA2A08F66800C16A85 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B47F92A08F66800C16A85 /* RestaurantViewController.swift */; };
 		E55B47FC2A08F6A200C16A85 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B47FB2A08F6A200C16A85 /* ReservationViewController.swift */; };
 		E55B47FE2A08F6CE00C16A85 /* ReservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B47FD2A08F6CE00C16A85 /* ReservationDetailViewController.swift */; };
@@ -86,6 +90,10 @@
 		E53C6A3F2A03EA4F002267D8 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		E53C6A412A03EBD9002267D8 /* RestaurantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantData.swift; sourceTree = "<group>"; };
 		E5577C352A20C8E300D40FB5 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		E559A71E2A2479DF0062B917 /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
+		E559A7202A247A5C0062B917 /* RestaurantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantManager.swift; sourceTree = "<group>"; };
+		E559A7222A247A8C0062B917 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E559A7242A247B670062B917 /* RestaurantTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTarget.swift; sourceTree = "<group>"; };
 		E55B47F92A08F66800C16A85 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		E55B47FB2A08F6A200C16A85 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 		E55B47FD2A08F6CE00C16A85 /* ReservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +266,10 @@
 		E572EF8D29A893BD002D9A85 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E559A71E2A2479DF0062B917 /* RestaurantService.swift */,
+				E559A7202A247A5C0062B917 /* RestaurantManager.swift */,
+				E559A7222A247A8C0062B917 /* NetworkManager.swift */,
+				E559A7242A247B670062B917 /* RestaurantTarget.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -629,15 +641,19 @@
 				E5648E4D2A23910800F250CF /* UIView+Addition.swift in Sources */,
 				E5E83FAC2A1AB19400C86E5B /* UpcomingReservationTableViewCell.swift in Sources */,
 				E55CFD0F29F85BEC0022CF9B /* MapPresenter.swift in Sources */,
+				E559A7212A247A5C0062B917 /* RestaurantManager.swift in Sources */,
 				E5577C362A20C8E400D40FB5 /* ReviewTableViewCell.swift in Sources */,
+				E559A7252A247B670062B917 /* RestaurantTarget.swift in Sources */,
 				E52696012A12B85B00507CA0 /* CustomTextField.swift in Sources */,
 				E5648E532A23EFE300F250CF /* HorizontalReviewTableViewCell.swift in Sources */,
 				E55CFD0D29F85BD90022CF9B /* MapViewController.swift in Sources */,
+				E559A7232A247A8C0062B917 /* NetworkManager.swift in Sources */,
 				E5648E4F2A23913500F250CF /* CardTabBarController.swift in Sources */,
 				E5991E8729A905D90056DE75 /* RegistrationPresenter.swift in Sources */,
 				E5E09B6429A51A00001503BF /* BookMyTable.xcdatamodeld in Sources */,
 				E55B47FE2A08F6CE00C16A85 /* ReservationDetailViewController.swift in Sources */,
 				E573584C2A0947D7009315DB /* StartViewController.swift in Sources */,
+				E559A71F2A2479DF0062B917 /* RestaurantService.swift in Sources */,
 				E55B48022A090CD400C16A85 /* MenuData.swift in Sources */,
 				E55B48002A090BAC00C16A85 /* RestaurantDetailData.swift in Sources */,
 				E5648E3F2A23642100F250CF /* MenuTableViewCell.swift in Sources */,

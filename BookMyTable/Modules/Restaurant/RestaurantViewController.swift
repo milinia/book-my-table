@@ -309,9 +309,13 @@ class RestaurantViewController: UIViewController {
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: false)
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = location
         mapView.addAnnotation(annotation)
+    }
+    
+    func setAnnotations(annotaions: [MKPointAnnotation]) {
+        annotaions.forEach({self.mapView.addAnnotation($0)})
     }
     
     private func setupConstraints() {
