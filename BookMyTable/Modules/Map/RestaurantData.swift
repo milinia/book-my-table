@@ -12,7 +12,7 @@ struct RestaurantData {
     let latitude: Double
     let longitude: Double
     let title: String
-    let rating: String
+    let rating: Double
     let address: String
     let openingHours: String
     let image: Data

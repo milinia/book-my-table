@@ -8,6 +8,8 @@ target 'BookMyTable' do
 	pod 'SnapKit', '~> 5.6.0'
 	pod 'Moya', '~> 15.0'
 	pod 'SwiftGen', '~> 6.6.2'
+	pod 'lottie-ios'
+	pod 'ClusterKit', '~> 0.5'
 
   # Pods for BookMyTable
 

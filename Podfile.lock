@@ -1,5 +1,9 @@
 PODS:
   - Alamofire (5.6.1)
+  - ClusterKit (0.5.0):
+    - ClusterKit/Core (= 0.5.0)
+  - ClusterKit/Core (0.5.0)
+  - lottie-ios (4.2.0)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
@@ -8,6 +12,8 @@ PODS:
   - SwiftGen (6.6.2)
 
 DEPENDENCIES:
+  - ClusterKit (~> 0.5)
+  - lottie-ios
   - Moya (~> 15.0)
   - SnapKit (~> 5.6.0)
   - SwiftGen (~> 6.6.2)
@@ -15,16 +21,20 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - ClusterKit
+    - lottie-ios
     - Moya
     - SnapKit
     - SwiftGen
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  ClusterKit: 6d4b2fdfdd2a74a386fd67dd60a29a69851745e0
+  lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
 
-PODFILE CHECKSUM: 3236112a57aaafb12d780da4eb141354c9a0d9a0
+PODFILE CHECKSUM: 97b557ffa444d04e2b43dc4038ba47a199a19b7c
 
 COCOAPODS: 1.11.3

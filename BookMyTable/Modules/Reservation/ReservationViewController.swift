@@ -6,18 +6,19 @@
 //
 
 import UIKit
+import SnapKit
 
 class ReservationViewController: UIViewController {
     
     // MARK: - Private constants
     private enum UIConstants {
-        static let labelsFontSize: CGFloat = 20
+        static let labelsFontSize: CGFloat = 18
         static let viewsCornerSize: CGFloat = 14
         static let contentInset: CGFloat = 16
         static let guestsViewHeight: CGFloat = 80
         static let timeViewHeight: CGFloat = 240
-        static let spaceBetweenViews: CGFloat = 20
-        static let titleLabelFontSize: CGFloat = 30
+        static let spaceBetweenViews: CGFloat = 16
+        static let titleLabelFontSize: CGFloat = 15
         static let buttonCornerRadius: CGFloat = 20
         static let pickerViewLabelHeight: CGFloat = 30
         static let textViewHeight: CGFloat = 130
@@ -26,22 +27,30 @@ class ReservationViewController: UIViewController {
     }
     
     // TODO: подумать, будет ли от сервера или на уровне приложения генерируется
-    private var dateArray: [String] = ["17 мая, среда", "18 мая, четверг", "19 мая, пятница", "20 мая, суббота", "21 мая, воскресенье"]
-    private var timeArray: [String] = ["10:00", "11:30", "13:00", "14:00", "16:00", "17:30", "19:00", "20:00", "21:30", "10:00", "11:30", "13:00", "14:00", "16:00", "17:30", "19:00", "20:00", "21:30"]
-    private var restaurantTitle: String = "Ресторан «На крыше»"
+    private var timeArray: [String] = ["12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "22:00", "22:30"]
+    var restaurantTitle: String = ""
+    var restaurantAddress: String = ""
+    var restaurantImage: Data = Data()
     private var tableID: String = ""
     private var restaurantID: String = ""
-    private var selectedCell: UICollectionViewCell = UICollectionViewCell()
+    private var selectedCell: TimeCollectionViewCell = TimeCollectionViewCell()
     
     //MARK: - Private UI properties
     
-//    private lazy var reservationLabel: UILabel = {
-//        let label = UILabel()
-//        label.numberOfLines = 0
-//        label.font = .systemFont(ofSize: UIConstants.titleLabelFontSize, weight: .bold)
-//        label.text = StringConstants.reservation + " в «" + restaurantTitle + "»"
-//        return label
-//    }()
+    private lazy var reservationLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: UIConstants.titleLabelFontSize, weight: .bold)
+        label.text = StringConstants.reservation + " в «" + restaurantTitle + "»"
+        return label
+    }()
+    
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+        button.tintColor = .black
+        return button
+    }()
     
     private lazy var numberOfGuestsStepper: UIStepper = {
         let stepper = UIStepper()
@@ -79,7 +88,10 @@ class ReservationViewController: UIViewController {
         let label = UILabel()
         label.textColor = .gray
         label.font = .systemFont(ofSize: UIConstants.labelsFontSize, weight: .bold)
-        label.text = dateArray[0]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM"
+        let formattedDate = dateFormatter.string(from: Date())
+        label.text = formattedDate
         label.textAlignment = .center
         return label
     }()
@@ -87,6 +99,7 @@ class ReservationViewController: UIViewController {
     private lazy var chooseDateButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "calendar"), for: .normal)
+//        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         button.tintColor = UIColor(red: 0.07, green: 0.29, blue: 0.71, alpha: 0.82)
 //        button.imageEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         return button
@@ -116,9 +129,9 @@ class ReservationViewController: UIViewController {
     
     private lazy var timeCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         let collection = UICollectionView(frame: CGRect(), collectionViewLayout: layout)
-        collection.showsHorizontalScrollIndicator = false
+        collection.showsVerticalScrollIndicator = false
         return collection
     }()
     
@@ -182,32 +195,40 @@ class ReservationViewController: UIViewController {
         
         numberOfGuestsStepper.addTarget(self, action: #selector(stepperChanged), for: .valueChanged)
         chooseDateButton.addTarget(self, action: #selector(chooseDateButtonPressed), for: .touchUpInside)
-        reserveButton.addTarget(self, action: #selector(reserveButtonPressed), for: .valueChanged)
+        reserveButton.addTarget(self, action: #selector(reserveButtonPressed), for: .touchUpInside)
     }
     
     @objc func chooseDateButtonPressed() {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: UIScreen.main.bounds.width - 10, height: UIScreen.main.bounds.height / 2)
         
-        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width:  UIScreen.main.bounds.width - 10, height: UIScreen.main.bounds.height / 2))
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        pickerView.selectRow(0, inComponent: 0, animated: false)
+//        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width:  UIScreen.main.bounds.width - 10, height: UIScreen.main.bounds.height / 2))
+//        pickerView.dataSource = self
+//        pickerView.delegate = self
+//        pickerView.selectRow(0, inComponent: 0, animated: false)
         
-        vc.view.addSubview(pickerView)
-        pickerView.snp.makeConstraints { make in
-            make.centerY.centerX.equalToSuperview()
-            make.height.equalToSuperview()
-            make.width.equalToSuperview()
+        let datePicker = UIDatePicker()
+        datePicker.preferredDatePickerStyle = .inline
+        datePicker.datePickerMode = .date
+        datePicker.minimumDate = Date()
+        datePicker.date = Date()
+        datePicker.tintColor = UIColor(red: 0.07, green: 0.29, blue: 0.71, alpha: 0.82)
+        
+        vc.view.addSubview(datePicker)
+        datePicker.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
         }
         
         let alert = UIAlertController(title: StringConstants.Reservation.chooseDate, message: "", preferredStyle: .actionSheet)
         alert.popoverPresentationController?.sourceView = chooseDateButton
         alert.popoverPresentationController?.sourceRect = chooseDateButton.bounds
         alert.setValue(vc, forKey: "contentViewController")
-        alert.addAction(UIAlertAction(title: StringConstants.Reservation.cancel, style: .cancel))
+//        alert.addAction(UIAlertAction(title: StringConstants.Reservation.cancel, style: .cancel))
         alert.addAction(UIAlertAction(title: StringConstants.Reservation.choose, style: .default, handler: {_ in
-            self.reservationDateLabel.text = self.dateArray[pickerView.selectedRow(inComponent: 0)]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM"
+            let formattedDate = dateFormatter.string(from: datePicker.date)
+            self.reservationDateLabel.text = formattedDate
         }))
         
         present(alert, animated: true)
@@ -219,6 +240,9 @@ class ReservationViewController: UIViewController {
     
     @objc func reserveButtonPressed(){
         // TODO: переход к другому экрану
+        let reservationDetailViewController = ReservationDetailViewController()
+        reservationDetailViewController.reservationData = ReservationData(time: selectedCell.getTime(), date: reservationDateLabel.text ?? "", restaurantName: restaurantTitle, restaurantAddress: restaurantAddress, guestsNumber: Int(numberOfGuestsLabel.text ?? "1") ?? 1, restaurantImage: restaurantImage, status: ReservationStatus.process.rawValue)
+        navigationController?.pushViewController(reservationDetailViewController, animated: true)
     }
     
     // MARK: - Private methods
@@ -230,11 +254,13 @@ class ReservationViewController: UIViewController {
 ////        scrollView.showsVerticalScrollIndicator = false
 //        scrollView.contentSize = CGSize(width: view.bounds.width, height: 1000)
 //
+        view.addSubview(backButton)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         view.addSubview(guestsView)
         view.addSubview(dateView)
         view.addSubview(timeView)
         view.addSubview(commentTextView)
-//        view.addSubview(tableView)
+        view.addSubview(reservationLabel)
         
 //        view.addSubview(scrollView)
         view.addSubview(reserveButton)
@@ -247,6 +273,10 @@ class ReservationViewController: UIViewController {
         
         setupConstraints()
         setupSubview()
+    }
+    
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func setupSubview() {
@@ -319,14 +349,18 @@ class ReservationViewController: UIViewController {
     
     private func setupConstraints() {
         
-//        reservationLabel.snp.makeConstraints { make in
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(6)
-//            make.trailing.leading.equalToSuperview().offset(UIConstants.contentInset)
-//        }
+        reservationLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(UIConstants.contentInset)
+            make.centerX.equalToSuperview()
+        }
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(UIConstants.contentInset)
+            make.leading.equalToSuperview().offset(UIConstants.contentInset)
+        }
         
         guestsView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(UIConstants.contentInset)
+            make.top.equalTo(backButton.snp.bottom).offset(UIConstants.contentInset + 10)
             make.width.equalToSuperview().inset(UIConstants.contentInset)
             make.height.equalTo(UIConstants.guestsViewHeight)
         }
@@ -387,32 +421,32 @@ extension ReservationViewController: UITextViewDelegate {
 }
 
 // MARK: - UIPickerViewDataSource, UIPickerViewDelegate
-extension ReservationViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        dateArray.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        dateArray[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        reservationDateLabel.text = dateArray[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 10, height: UIConstants.pickerViewLabelHeight))
-        label.text = dateArray[row]
-        label.sizeToFit()
-        return label
-    }
-    
-}
+//extension ReservationViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+//
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        dateArray.count
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        dateArray[row]
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        reservationDateLabel.text = dateArray[row]
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 10, height: UIConstants.pickerViewLabelHeight))
+//        label.text = dateArray[row]
+//        label.sizeToFit()
+//        return label
+//    }
+
+//}
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension ReservationViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -428,7 +462,7 @@ extension ReservationViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? TimeCollectionViewCell {
-            cell.backgroundColor = UIColor(red: 0.07, green: 0.29, blue: 0.71, alpha: 0.5)
+            cell.backgroundColor = UIColor(red: 0.07, green: 0.29, blue: 0.71, alpha: 0.3)
             selectedCell.backgroundColor = .white
             selectedCell = cell
         }

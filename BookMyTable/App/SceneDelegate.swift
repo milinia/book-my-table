@@ -20,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: winScene.coordinateSpace.bounds)
         window?.windowScene = winScene
         // TODO: проверка не авторизирован ли пользователь - тогда сразу карта
-//        let startViewController = StartViewController()
+        let startViewController = StartViewController()
         
-        let startViewController = MapViewController()
+//        let startViewController = VerifyPhoneViewController()
         let navigationViewController = UINavigationController(rootViewController: startViewController)
         window?.rootViewController = navigationViewController
         window?.makeKeyAndVisible()

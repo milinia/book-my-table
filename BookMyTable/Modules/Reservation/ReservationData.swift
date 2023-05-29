@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct FreeReservationData {
     let time: [String]
@@ -19,4 +20,11 @@ struct ReservationData {
     let restaurantAddress: String
     let guestsNumber: Int
     let restaurantImage: Data
+    let status: String
+}
+
+enum ReservationStatus: String {
+    case cancel = "Отменено"
+    case process = "Ожидается"
+    case done = "Завершена"
 }

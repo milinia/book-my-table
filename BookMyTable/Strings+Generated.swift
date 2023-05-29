@@ -79,6 +79,34 @@ internal enum StringConstants {
     internal static let table = StringConstants.tr("Localizable", "reservation.table", fallback: "Выбранный стол")
     /// Время
     internal static let time = StringConstants.tr("Localizable", "reservation.time", fallback: "Время")
+    internal enum Detail {
+      /// Адрес
+      internal static let address = StringConstants.tr("Localizable", "reservation.detail.address", fallback: "Адрес")
+      /// Отменить бронь
+      internal static let cancel = StringConstants.tr("Localizable", "reservation.detail.cancel", fallback: "Отменить бронь")
+      /// Оставить отзыв
+      internal static let review = StringConstants.tr("Localizable", "reservation.detail.review", fallback: "Оставить отзыв")
+      /// Статус
+      internal static let status = StringConstants.tr("Localizable", "reservation.detail.status", fallback: "Статус")
+    }
+  }
+  internal enum Restaurant {
+    /// Местоположение
+    internal static let address = StringConstants.tr("Localizable", "restaurant.address", fallback: "Местоположение")
+    /// Кухня
+    internal static let cuisine = StringConstants.tr("Localizable", "restaurant.cuisine", fallback: "Кухня")
+    /// Описание
+    internal static let description = StringConstants.tr("Localizable", "restaurant.description", fallback: "Описание")
+    /// Меню
+    internal static let menu = StringConstants.tr("Localizable", "restaurant.menu", fallback: "Меню")
+    /// Фотографии
+    internal static let photos = StringConstants.tr("Localizable", "restaurant.photos", fallback: "Фотографии")
+    /// Отзывы
+    internal static let reviews = StringConstants.tr("Localizable", "restaurant.reviews", fallback: "Отзывы")
+    /// Показать все
+    internal static let show = StringConstants.tr("Localizable", "restaurant.show", fallback: "Показать все")
+    /// Время работы
+    internal static let time = StringConstants.tr("Localizable", "restaurant.time", fallback: "Время работы")
   }
   internal enum Start {
     /// Начать

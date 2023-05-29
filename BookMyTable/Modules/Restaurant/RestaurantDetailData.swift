@@ -8,10 +8,10 @@
 import Foundation
 
 struct RestaurantDetailData {
-//    let latitude: Double
-//    let longitude: Double
+    let latitude: Double
+    let longitude: Double
     let title: String
-    let rating: String
+    let rating: Double
     let cuisine: String
     let description: String
     let address: String

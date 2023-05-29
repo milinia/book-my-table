@@ -20,6 +20,7 @@ class VerifyPhoneViewController: UIViewController {
         static let sentAgainButtonFontSize: CGFloat = 16
         static let textFieldWidthInsets: CGFloat = 20
         static let textFieldHeightInsets: CGFloat = 50
+        static let topSpace: CGFloat = 60
     }
     
     var userEnteredPhoneNumber: String = ""
@@ -104,8 +105,22 @@ class VerifyPhoneViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIConstants.sentAgainButtonFontSize)
         return button
     }()
+    
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+        button.tintColor = .black
+        return button
+    }()
 
     // MARK: - UIViewController life cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -115,37 +130,60 @@ class VerifyPhoneViewController: UIViewController {
         thirdTextField.delegate = self
         fouthTextField.delegate = self
         
-        nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
+    @objc func nextButtonTapped() {
         // TODO: отправка запроса на сервер - проверка что поле заполнено
         
-        // Get the current window
-        guard let window = UIApplication.shared.windows.first else {
-            return
+        if (firstTextField.text == "" || secondTextField.text == "" ||
+            thirdTextField.text == "" || fouthTextField.text == "") {
+            firstTextField.layer.borderColor = UIColor.systemRed.cgColor
+            firstTextField.layer.borderWidth = 1.0
+            
+            secondTextField.layer.borderColor = UIColor.systemRed.cgColor
+            secondTextField.layer.borderWidth = 1.0
+            
+            thirdTextField.layer.borderColor = UIColor.systemRed.cgColor
+            thirdTextField.layer.borderWidth = 1.0
+            
+            fouthTextField.layer.borderColor = UIColor.systemRed.cgColor
+            fouthTextField.layer.borderWidth = 1.0
+        } else {
+            // Get the current window
+            guard let window = UIApplication.shared.windows.first else {
+                return
+            }
+
+            // Create a new view controller to set as the root view controller
+            let tabBarViewController = TabBarController()
+            
+            let recVC = RecommendationViewController()
+            recVC.title = StringConstants.TabBar.feed
+            let mapVC = MapViewController()
+            mapVC.title = StringConstants.TabBar.search
+            let reservationVC = HistoryReservationViewController()
+            reservationVC.title = StringConstants.TabBar.reservations
+            reservationVC.reservations = mapVC.reservations
+            tabBarViewController.viewControllers = [recVC, mapVC, reservationVC]
+            tabBarViewController.tabBar.backgroundColor = .systemGray5
+            tabBarViewController.tabBar.tintColor = UIColor(red: 0.07, green: 0.29, blue: 0.71, alpha: 0.82)
+            let items = tabBarViewController.tabBar.items
+            let images = [UIImage(systemName: "house"), UIImage(systemName: "magnifyingglass"), UIImage(systemName: "list.clipboard")]
+            for i in 0...2 {
+                items?[i].image = images[i]
+            }
+            tabBarViewController.selectedIndex = 1
+
+            let navigationViewController = UINavigationController(rootViewController: tabBarViewController)
+            navigationViewController.isNavigationBarHidden = true
+            window.rootViewController = navigationViewController
         }
-
-        // Create a new view controller to set as the root view controller
-        let tabBarViewController = UITabBarController()
-        let recVC = RecommendationViewController()
-        recVC.title = StringConstants.TabBar.feed
-        let mapVC = MapViewController()
-        mapVC.title = StringConstants.TabBar.search
-        let profileVC = ProfileViewController()
-        profileVC.title = StringConstants.TabBar.reservations
-        tabBarViewController.setViewControllers([recVC, mapVC, profileVC], animated: false)
-        tabBarViewController.tabBar.backgroundColor = .systemGray5
-        let items = tabBarViewController.tabBar.items
-        let images = [UIImage(systemName: "house"), UIImage(systemName: "magnifyingglass"), UIImage(systemName: "list.clipboard")]
-        for i in 0...2 {
-            items?[i].image = images[i]
-        }
-        tabBarViewController.selectedIndex = 0
-
-        // Set the root view controller to the new view controller
-        window.rootViewController = tabBarViewController
-
     }
     
     // MARK: - Private methods
@@ -162,13 +200,22 @@ class VerifyPhoneViewController: UIViewController {
         view.addSubview(xStack)
         view.addSubview(sentAgainButton)
         view.addSubview(nextButton)
+        view.addSubview(backButton)
         
         setupConstraints()
     }
     
     private func setupConstraints() {
+        
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(UIConstants.contentInset)
+            make.leading.equalToSuperview().offset(UIConstants.contentInset)
+//            make.width.equalTo(60)
+//            make.height.equalTo(60)
+        }
+        
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(UIConstants.contentInset + 30)
+            make.top.equalTo(backButton.snp.bottom).offset(UIConstants.topSpace)
             make.trailing.leading.equalToSuperview().offset(UIConstants.contentInset)
         }
         

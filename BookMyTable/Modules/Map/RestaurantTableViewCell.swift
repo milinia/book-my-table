@@ -38,7 +38,7 @@ class RestaurantTableViewCell: UITableViewCell {
         titleLabel.text = restaurant.title
         addressLabel.text = restaurant.address
         openingLabel.text = restaurant.openingHours
-        ratingLabel.text = restaurant.rating
+        ratingLabel.text = String(restaurant.rating)
     }
     
     //MARK: - Private UI properties
@@ -77,7 +77,7 @@ class RestaurantTableViewCell: UITableViewCell {
     private lazy var starImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "star.fill")
-        image.tintColor = .black
+        image.tintColor = .systemRed
         return image
     }()
     

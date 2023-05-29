@@ -43,6 +43,11 @@
 "reservation.comment" = "Пожелания к бронированию (необязательно)";
 "reservation.table" = "Выбранный стол";
 
+"reservation.detail.cancel" = "Отменить бронь";
+"reservation.detail.status" = "Статус";
+"reservation.detail.address" = "Адрес";
+"reservation.detail.review" = "Оставить отзыв";
+
 "tabBar.feed" = "Главная";
 "tabBar.search" = "Поиск";
 "tabBar.reservations" = "Брони";
@@ -50,3 +55,13 @@
 "profile.reservations" = "Мои бронирования";
 
 "recommendation.collection" = "Подборки";
+
+"restaurant.menu" = "Меню";
+"restaurant.description" = "Описание";
+"restaurant.reviews" = "Отзывы";
+"restaurant.cuisine" = "Кухня";
+"restaurant.time" = "Время работы";
+"restaurant.address" = "Местоположение";
+"restaurant.photos" = "Фотографии";
+"restaurant.show" = "Показать все";
+

@@ -21,11 +21,12 @@ class AuthenticationViewController: UIViewController {
         static let spaceAfterInfoLabel: CGFloat = 36
         static let textFieldWidth: CGFloat = 20
         static let textFieldHeight: CGFloat = 50
+        static let topSpace: CGFloat = 60
     }
     //MARK: - Private UI properties
     private lazy var phoneTextField: UITextField = {
         let textField = CustomTextField()
-        textField.text = "+7 "
+        textField.text = "+7 9"
         textField.layer.borderColor = UIColor.systemGray5.cgColor
         textField.layer.borderWidth = 0.5
         textField.keyboardType = .numberPad
@@ -80,19 +81,23 @@ class AuthenticationViewController: UIViewController {
         let barButton = UIBarButtonItem(customView: registrationButton)
         navigationItem.rightBarButtonItem = barButton
         
-        registrationButton.addTarget(self, action: #selector(registrationButtonTapped(_:)), for: .touchUpInside)
-        nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: .touchUpInside)
+        registrationButton.addTarget(self, action: #selector(registrationButtonTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
-    @IBAction func registrationButtonTapped(_ sender: UIButton) {
+    @objc func registrationButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
-        // TODO: отправка запроса на сервер - проверка что поле заполнено
-        let verifyPhoneViewController = VerifyPhoneViewController()
-        verifyPhoneViewController.userEnteredPhoneNumber = phoneTextField.text ?? ""
-        navigationController?.pushViewController(verifyPhoneViewController, animated: true)
+    @objc func nextButtonTapped() {
+        if (phoneTextField.text == "+7 9" && phoneTextField.text?.count != 16) {
+            phoneTextField.layer.borderColor = UIColor.systemRed.cgColor
+            phoneTextField.layer.borderWidth = 1.0
+        } else {
+            let verifyPhoneViewController = VerifyPhoneViewController()
+            verifyPhoneViewController.userEnteredPhoneNumber = phoneTextField.text ?? ""
+            navigationController?.pushViewController(verifyPhoneViewController, animated: true)
+        }
     }
     
     // MARK: - Private methods
@@ -115,7 +120,7 @@ class AuthenticationViewController: UIViewController {
     
     private func setupConstraints() {
         loginLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(UIConstants.contentInset + 30)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(UIConstants.topSpace)
             make.trailing.leading.equalToSuperview().offset(UIConstants.contentInset)
         }
         

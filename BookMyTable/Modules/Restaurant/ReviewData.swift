@@ -11,4 +11,5 @@ struct ReviewData {
     let author: String
     let comment: String
     let rate: Double
+    let date: String
 }

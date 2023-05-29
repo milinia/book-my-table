@@ -24,6 +24,7 @@ class RegistrationViewController: UIViewController {
         static let textFieldHeight: CGFloat = 50
         static let bottomtConstaint: CGFloat = 24
         static let agreementLabeFontSize: CGFloat = 14
+        static let topSpace: CGFloat = 60
     }
     private var phoneNumberString: String = ""
     //MARK: - Private UI properties
@@ -40,7 +41,7 @@ class RegistrationViewController: UIViewController {
     
     private lazy var phoneTextField: UITextField = {
         let textField = CustomTextField()
-        textField.text = "+7 "
+        textField.text = "+7 9"
         textField.layer.borderColor = UIColor.systemGray5.cgColor
         textField.layer.borderWidth = 0.5
         textField.keyboardType = .numberPad
@@ -115,9 +116,17 @@ class RegistrationViewController: UIViewController {
     
     @objc func nextButtonTapped() {
         // TODO: отправка запроса на сервер - проверка, что все поля заполнены
-        let verifyPhoneViewController = VerifyPhoneViewController()
-        verifyPhoneViewController.userEnteredPhoneNumber = phoneTextField.text ?? ""
-        navigationController?.pushViewController(verifyPhoneViewController, animated: true)
+        if (nameTextField.text == "") {
+            nameTextField.layer.borderColor = UIColor.systemRed.cgColor
+            nameTextField.layer.borderWidth = 1.0
+        } else if (phoneTextField.text == "+7 9" && phoneTextField.text?.count != 16) {
+            phoneTextField.layer.borderColor = UIColor.systemRed.cgColor
+            phoneTextField.layer.borderWidth = 1.0
+        } else {
+            let verifyPhoneViewController = VerifyPhoneViewController()
+            verifyPhoneViewController.userEnteredPhoneNumber = phoneTextField.text ?? ""
+            navigationController?.pushViewController(verifyPhoneViewController, animated: true)
+        }
     }
     
     // MARK: - Private methods
@@ -139,7 +148,7 @@ class RegistrationViewController: UIViewController {
     
     private func setupConstraints() {
         registrationLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(UIConstants.contentInset + 30)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(UIConstants.topSpace)
             make.trailing.leading.equalToSuperview().offset(UIConstants.contentInset)
         }
         

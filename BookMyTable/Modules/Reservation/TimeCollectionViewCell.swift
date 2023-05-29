@@ -24,6 +24,10 @@ class TimeCollectionViewCell: UICollectionViewCell {
         timeLabel.text = time
     }
     
+    func getTime() -> String {
+        return timeLabel.text ?? ""
+    }
+    
     //MARK: - Private UI properties
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
